@@ -1,3 +1,3 @@
 Problem,Difficulty,Date,Time Solved,Notes
 1,Easy,12/11/2023,0:15:18,Test run using the new environment. Accidentally used set instead of map :v.
- 
+9,Easy,12/11/2023,0:22:40,Off by one error when comparing back to front :( Avoided obvious string comparison method.
