@@ -1,6 +1,6 @@
-# CRAGEJ's LEETCODE SOLUTIONS
+# CRAGEJ's COMPETITIVE PROGRAMMING SOLUTIONS
 
-Contains solutions written by me, predominantly in C++.
+Contains solutions written by me, predominantly in C++ and python.
 
 Using VSCode extension LeetCode: LeetCode.vscode-leetcode
 
