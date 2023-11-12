@@ -6,3 +6,4 @@ Problem,Difficulty,Date,Failed,Time Solved,Notes
 93,Medium,12/11/2023,No,0:40:22, Note to self: substr is (index size) and not (index index)
 1492,Medium,13/11/2023,No,0:23:23, 
 2405,Medium,13/11/2023,Yes,0:32:17, DID NOT SOLVE. solved at 25 minutes yet could not bypass memory exceeded error
+605,Easy,13/11/2023,Yes,0:15:51, Overcomplicated
