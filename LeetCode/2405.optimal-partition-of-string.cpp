@@ -9,7 +9,25 @@
 // @lc code=start
 #include <bits/stdc++.h>
 using namespace std;
+class Solution {
+public:
+    int partitionString(string s) {
+        int b[26];
+        memset(b, 0, 26*sizeof(int));
 
+        int ans = 1;
+
+        for (char & c : s) {
+            if (b[c - 'a'] == ans) {
+                ans++;
+            }
+            b[c - 'a'] = ans;
+        }
+
+        return ans;
+    }
+};
+/*
 class Solution {
 public:
 
@@ -30,7 +48,7 @@ public:
         return wc;
     }
 };
-
+*/
 // @lc code=end
 
 //original failed implementation
