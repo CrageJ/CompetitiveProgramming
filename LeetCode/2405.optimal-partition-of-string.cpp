@@ -9,6 +9,32 @@
 // @lc code=start
 #include <bits/stdc++.h>
 using namespace std;
+
+class Solution {
+public:
+
+    int partitionString(string s) {
+        if (s.size()==0){
+            return 0;
+        }
+        set<char> charset;
+        int wc = 1;
+        for (int i = 0;i< s.size();i++){
+            char c = s[i];
+            if (charset.count(c)>0){
+                charset.clear();
+                wc ++;
+            }
+            charset.insert(c);
+        }
+        return wc;
+    }
+};
+
+// @lc code=end
+
+//original failed implementation
+/*
 class Solution {
 public:
 
@@ -38,5 +64,4 @@ public:
         return dp(s);
     }
 };
-// @lc code=end
-
+*/
