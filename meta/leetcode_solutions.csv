@@ -1,4 +1,5 @@
 Problem,Difficulty,Date,Time Solved,Notes
 1,Easy,12/11/2023,0:15:18,Test run using the new environment. Accidentally used set instead of map :v.
 9,Easy,12/11/2023,0:22:40,Off by one error when comparing back to front :( Avoided obvious string comparison method.
-815,Hard,12/11/2023,1:30:00, 47/49 cases passed (time limit exceeded). Fixed at 2:00:00 by tracking both buses and stops processed.
+815,Hard,12/11/2023,2:00:00, 47/49 cases passed (time limit exceeded)at 1:30:00. Fixed at 2:00:00 by tracking both buses and stops processed.
+3,Medium,12/11/2021,0:20:49, Originally misunderstood task as I thought I needed to include repeated characters (this was done using a suffix tree)
