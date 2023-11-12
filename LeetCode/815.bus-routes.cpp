@@ -30,10 +30,12 @@ public:
         for (int startingLocationIndex = 0; startingLocationIndex < stops[source].size();startingLocationIndex++){
             int startingBus = stops[source][startingLocationIndex];
             set<int> visitedBuses;
+            set<int> visitedStops;
             queue<pair<int,int>> busQueue;
 
             busQueue.push({startingBus,0});
             visitedBuses.insert(startingBus);
+            visitedStops.insert(source);
 
             bool stopSignal = false;
             while (!busQueue.empty() && !stopSignal){
@@ -50,7 +52,11 @@ public:
                         stopSignal = true;
                         break;
                     }
+                    if (visitedStops.count(stop) > 0){
+                        continue;
+                    }
                     else{
+                        visitedStops.insert(stop);
                         for (auto neighbourBus: stops[stop]){
                             if (visitedBuses.count(neighbourBus) == 0){
                                 visitedBuses.insert(neighbourBus);

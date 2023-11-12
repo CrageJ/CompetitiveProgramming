@@ -1,4 +1,4 @@
 Problem,Difficulty,Date,Time Solved,Notes
 1,Easy,12/11/2023,0:15:18,Test run using the new environment. Accidentally used set instead of map :v.
 9,Easy,12/11/2023,0:22:40,Off by one error when comparing back to front :( Avoided obvious string comparison method.
-815,Hard,12/11/2023,1:30:00, 47/49 cases passed (time limit exceeded). Should have used dijkstra instead of BFS for this problem
+815,Hard,12/11/2023,1:30:00, 47/49 cases passed (time limit exceeded). Fixed at 2:00:00 by tracking both buses and stops processed.
