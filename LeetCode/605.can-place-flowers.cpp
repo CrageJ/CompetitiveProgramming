@@ -8,6 +8,47 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+
+class Solution {
+public:
+    bool canPlaceFlowers(vector<int>& flowerbed, int n) {
+        if (n == 0){
+            return true;
+        }
+        int placed = 0;
+
+        for (int i = 0 ;i< flowerbed.size() && placed < n;i++){
+            if (flowerbed[i] == 1){
+                i++;//skip ahead 2 instead of one
+                continue;
+            }
+            bool canPlace = true;
+            
+            if (i<flowerbed.size()-1){
+                if (flowerbed[i+1] == 1){
+                    i+= 2; //skip ahead 3 instead of one;
+                    canPlace = false;
+                }
+            }
+
+            if (i > 0){
+                if (flowerbed[i-1] == 1){
+                    canPlace = false;
+                }
+            } 
+
+            if (canPlace){
+                placed++;
+                i++; //skip ahead 2 instead of one
+            }
+        }
+        return placed >= n;
+    }
+};
+// @lc code=end
+/*
+original solution
 class Solution {
 public:
     bool canPlaceFlowers(vector<int>& flowerbed, int n) {
@@ -50,5 +91,8 @@ public:
         return placed >= n;
     }
 };
-// @lc code=end
+
+
+*/
+
 
