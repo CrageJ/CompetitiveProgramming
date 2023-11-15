@@ -12,6 +12,53 @@ class Solution {
 public:
 
     int countPalindromicSubsequence(string s) {
+        int size = s.size();
+        int uniq = 0;
+
+        unordered_map<char,int> sset;
+        for (char c : s){
+            int count = 0;
+            if (sset.count(c) > 0){
+                count= sset[c];
+            }
+            sset[c] = count +1;
+        }
+        vector<char> v;
+        for (auto entry : sset){
+            if (entry.second >= 2){
+                v.push_back(entry.first);
+            }
+        }
+
+        for (auto c :v){
+            for (int l = 0;l< size;l++){
+                if (s[l] == c){
+                    for (int r = size-1;r>l;r--){
+                     if (s[r] == c){
+                        vector<bool> seenChars(26,false);
+                        for (int k = l+1;k<r;k++){
+                            seenChars[s[k]-'a']= 1;
+                        }
+                        uniq += accumulate(seenChars.begin(),seenChars.end(),0);
+                        break;
+                     }   
+                    }
+                    break;
+                }
+            }
+        }   
+        return uniq;
+    }
+};
+
+// @lc code=end
+
+
+/*
+class Solution {
+public:
+
+    int countPalindromicSubsequence(string s) {
                 //has the first character been seen before?
         bool firstCharTrack[26];
 
@@ -77,5 +124,6 @@ public:
 
     }
 };
-// @lc code=end
 
+
+*/
