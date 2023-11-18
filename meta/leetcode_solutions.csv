@@ -16,3 +16,6 @@ Problem,Difficulty,Date,Success,Time Solved,Notes
 1930,Medium,14/11/2023,Yes,2:00:00, Billion years and billions of refactoring
 153,Medium,14/11/2023,Yes,1:04:11,
 1846,Medium,15/11/2023,Yes,0:55:40,
+1980,Medium,16/11/2023,Yes,0:15:56, found better solution 
+1877,Medium,17/11/2023,Yes,0:04:49, 5 mins medium!!!!
+1838,Medium,18/11/2023,Yes,1:00:39, I had the broad solution figured out early but because i forgot how to use rangesums it took me a while to figure out
