@@ -4,5 +4,6 @@ Contains solutions written by me, predominantly in C++ and python.
 
 Using VSCode extension LeetCode: LeetCode.vscode-leetcode
 
-meta/solutions.csv contains solve times.
+Note that not all solutions may not necessarily be complete or pass all test cases.
 
+meta/ contains solve times.
