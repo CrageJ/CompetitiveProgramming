@@ -1,11 +1,3 @@
-/*
- * @lc app=leetcode id=1630 lang=cpp
- *
- * [1630] Arithmetic Subarrays
- */
-
-// @lc code=
-
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -18,36 +10,32 @@ struct PairHash {
     }
 };
 
+/*
+ * @lc app=leetcode id=1630 lang=cpp
+ *
+ * [1630] Arithmetic Subarrays
+ */
+
+// @lc code=
+
+
+
 class Solution {
 public:
     vector<bool> checkArithmeticSubarrays(vector<int>& nums, vector<int>& l, vector<int>& r) {
-        vector<vector<int>> v;
+        vector<bool> result(l.size(),true);
         for (int i = 0;i< l.size();i++){
-            int ptrL = l[i];
-            int ptrR = r[i];
-
-            
-            vector<int> ins(nums.begin()+ptrL,nums.begin()+ptrR+1); // is it ptr + 1?
-            v.push_back(ins);
-            
-        }
-
-        vector<bool> result;
-
-        for (auto &item : v){
-            sort(item.begin(),item.end());
-            int distance = item[1]- item[0];
-            for (int i = 1;i< item.size();i++){
-                if (item[i] - item[i-1] != distance){
-                    result.push_back(false);
-                    goto jmp;
+            vector<int> ins(nums.begin()+l[i],nums.begin()+r[i]+1); // is it ptr + 1?
+            sort(ins.begin(),ins.end());
+            int distance = ins[1]- ins[0];
+            bool isValid = true;
+            for (int j = 1;j< ins.size();j++){
+                if (ins[j] - ins[j-1] != distance){
+                    result[i] = false;
+                    break;
                 }
             }
-            result.push_back(true);
-            jmp:
-            continue;
         }
-
         return result;
     }
 };
