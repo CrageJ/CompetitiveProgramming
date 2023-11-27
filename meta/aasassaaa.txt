@@ -1,0 +1,29 @@
+
+The key insight is that the first student at the back has knowledge of every other hat, and can use the fact that he's allowed to get one guess wrong to his advantage.
+
+Rather than guessing his hat, he can encode information with his hat guess, which he can use to inform future students of their guess.
+
+In my solution,
+
+ 
+
+The function signature should take the form 
+string StudentGuess(string back[],string front[]){}
+Where back and front are arrays containing values.
+Function should return the guess for that student.
+
+The solution can be evaluated by iterating through each student, appending their guess to the end of the next student's back[] array. 
+
+e.g hats = ["red","blue","green"]
+
+
+before = []
+after = hats[1...N]
+//Student 0:
+guess = StudentGuess([],after) //guess = green.
+before.append(guess)
+after.pop_front()
+//Student 1:
+guess = StudentGuess([],after) //guess = green.
+before.append(guess)
+after.pop_front()
