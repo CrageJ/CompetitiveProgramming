@@ -34,6 +34,9 @@ unordered_map<string,ll> memo;
 vector<vector<int>> directions = {{1,2},{2,1},{2,-1},{1,-2},{-1,-2},{-2,-1},{-2,1},{-1,2}};
 
     ll dp (int x, int y, int n){
+        if (x == 2){
+            x = 0;
+        }
         if (x < 0 || x >= 3 || y < 0 || y >= 4 || n < 0 || pad[y][x]=='*'){
             return 0;
         }
