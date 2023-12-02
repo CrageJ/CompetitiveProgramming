@@ -1,5 +1,6 @@
 .vscode/
 meta/internal_notes.md
 AdventOfCode/*.*
+!AdventOfCode/*.*.cpp
 
 
