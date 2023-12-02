@@ -39,13 +39,13 @@ struct inputProcessor{
         for (auto line : lines){
             curr.clear();
             int lastElement = 0; // always points to first valid spot
-            for (int i = 0;i< line.size();i++){
+            for (int i = 0;i< line.size();i++){ // ignore last value if it is a delimiter
                 if (line[i] == delim){
                     curr.push_back(line.substr(lastElement,i-lastElement));
                     lastElement = i+1;
                 }
             }
-            curr.push_back(line.substr(lastElement,line.size()-lastElement));
+            curr.push_back(line.substr(lastElement));
             arr.push_back(curr);
         }
 
