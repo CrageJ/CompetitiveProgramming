@@ -2,5 +2,4 @@
 meta/internal_notes.md
 AdventOfCode/*.*
 !AdventOfCode/*.*.cpp
-
-
+AdventOfCode/input/*.*.bigboy

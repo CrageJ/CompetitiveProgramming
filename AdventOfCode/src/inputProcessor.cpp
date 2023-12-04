@@ -10,10 +10,7 @@ using namespace std;
 struct inputProcessor{
     
     vector<string> lines;
-    //vector<vector<string>> csv;
-    //vector<vector<string>> spaced;
 
-    
     inputProcessor(string fileName){
         string line;
         if (fileName == "stdin"){
@@ -32,14 +29,14 @@ struct inputProcessor{
         return;
     }
     inputProcessor() : inputProcessor("stdin"){};
-    
-    std::vector<std::vector<std::string>> getByDelim(char delim) {
-        std::vector<std::vector<std::string>> arr;
+
+    vector<vector<string>> getByDelim(char delim) {
+        vector<vector<string>> arr;
 
         for (string& line : lines) {
-            std::vector<std::string> curr;
-            std::stringstream ss(line);
-            std::string token;
+            vector<string> curr;
+            stringstream ss(line);
+            string token;
 
             // Use find_first_of to get the positions of delimiters
             size_t pos = line.find_first_of(delim, 0);
@@ -65,7 +62,7 @@ struct inputProcessor{
         return arr;
     }
 
-    vector<vector<string>> getLines(){
+    vector<vector<string>> getLines(){ // no seperators
         return getByDelim('\0');
     } 
     vector<vector<string>> getCSV(){

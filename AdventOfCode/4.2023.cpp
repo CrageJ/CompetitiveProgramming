@@ -28,30 +28,31 @@ void Solution::part1() {
 
 void Solution::part2() {
     int count = 0;
-    map<int,int> mmp; //cards,count
+    map<int,int> mmp; //cards,count. stores # copies of eah card
 
     for (int i =0;i< p2.size();i++){
         mmp[i] = 1;
     }
     
-    for (int r = 0;r< p2.size();r++) {
+    for (int r = 0;r< p2.size();r++) { // 2d matrix of values
         auto row = p2[r];
         set<string> nums;
         int cc = 0;
         int i = 2;
-        for (i; row[i] != "|";i++) {
-            nums.insert(row[i]);
+        for (i; row[i] != "|";i++) { // space separated values
+            nums.insert(row[i]); // count guess values
         }
         i++;
         for (i;i<row.size();i++){
-            if (nums.count(row[i]) != 0){
+            if (nums.count(row[i]) != 0){ // count guess/scratched values
                 cc++;
             }
         }
-        //cout<<endl;
+        //!!!!!! speedup potential?
         for (int idx = r+1;idx <=min(r+cc,(int)p2.size()-1);idx++){
-            mmp[idx] += (mmp[r]);
+            mmp[idx] += (mmp[r]); 
         }
+        //!!!!!!
         count += mmp[r];
     }
     cout<<"Part 2: "<<count<<endl;

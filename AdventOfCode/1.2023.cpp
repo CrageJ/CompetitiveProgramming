@@ -95,6 +95,7 @@ void Solution::part2(){
                 break;
             }
         }
+
         sum += l*10 + r;
     }
         cout<<"Part 2: "<<sum<<endl;
