@@ -33,19 +33,32 @@ struct inputProcessor{
     }
     inputProcessor() : inputProcessor("stdin"){};
     
-    vector<vector<string>> getByDelim(char delim){
-        vector<vector<string>> arr;
-        vector<string> curr;
-        for (auto line : lines){
-            curr.clear();
-            int lastElement = 0; // always points to first valid spot
-            for (int i = 0;i< line.size();i++){ // ignore last value if it is a delimiter
-                if (line[i] == delim){
-                    curr.push_back(line.substr(lastElement,i-lastElement));
-                    lastElement = i+1;
+    std::vector<std::vector<std::string>> getByDelim(char delim) {
+        std::vector<std::vector<std::string>> arr;
+
+        for (string& line : lines) {
+            std::vector<std::string> curr;
+            std::stringstream ss(line);
+            std::string token;
+
+            // Use find_first_of to get the positions of delimiters
+            size_t pos = line.find_first_of(delim, 0);
+
+            while (pos != string::npos) {
+                // Extract the substring between two delimiters
+                string ssub = line.substr(0, pos);
+                if (ssub.size() > 0){
+                    curr.push_back(ssub);
+                // Move to the next character after the delimiter
                 }
+
+                line = line.substr(pos + 1);
+                pos = line.find_first_of(delim, 0);
             }
-            curr.push_back(line.substr(lastElement));
+
+            // Add the remaining part of the line
+            curr.push_back(line);
+
             arr.push_back(curr);
         }
 

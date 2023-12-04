@@ -1,3 +1,4 @@
-Year,Problem,Date,Time Solved,Notes
-2023,2,2/12/2023,0:30:02, I knew how to solved this problem instantly. Bizarrely a bug where i cutoff the last char in each space separated word (including the last word where i cut off the last char) did not affect the solution to part 1 but did for 2.
-
+Year,Problem,Date,Part 1,Part 2,Notes
+2023,2,2/12/2023,X,0:30:02,I knew how to solved this problem instantly. Bizarrely a bug where i cutoff the last char in each space separated word (including the last word where i cut off the last char) did not affect the solution to part 1 but did for 2.
+2023,3,3/12/2023,X,1:01:22,
+2023,4,4/12/2023,X,1:04:42,Had to go and fix the parser again for repeated delimiters; fixed now hopefully
