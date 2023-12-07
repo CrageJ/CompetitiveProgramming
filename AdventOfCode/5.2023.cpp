@@ -17,8 +17,6 @@ struct PairHash {
 
 
 void Solution::part1() {
-    
-
     vector<ll> seeds;
     //cout<<p1.size()<<' '<<p1[0].size();
 
@@ -73,28 +71,18 @@ struct seedRange{
 ll intersectingSeedRanges(seedRange a, seedRange b){
     ll al = a.startingSeed;
     ll bl = b.startingSeed;
-    ll ar = a.startingSeed+a.range;
-    ll br = b.startingSeed+b.range;
+    ll ar = a.startingSeed+a.range-1;
+    ll br = b.startingSeed+b.range-1;
 
-
-    if (br <= al || ar <= bl){
-            return 0; //////////?
-    }
-        
-    return abs(min(ar,br) - max(al,bl)); // plus 1?
-    
-    
+    ll res =  min(ar,br) - max(al,bl)+1;
+    return max((ll)0,res);
 }
 
 
 
 void Solution::part2() {
-    
-
-
     list<seedRange> seeds;
     list<seedRange> newSeeds;
-    
 
     for (int i = 2;i<p2[0].size();i+=2){
         seeds.push_back(seedRange(stoll(p2[0][i-1]),stoll(p2[0][i])));
@@ -103,9 +91,10 @@ void Solution::part2() {
 
     for (int r = 1;r<p2.size();r++) {
         auto row = p2[r];
+
         if (row.size()<3){
             r=r+1;
-            cout<<"stage end: ";
+           // cout<<"stage end: ";
             
             seeds.splice(seeds.end(),newSeeds);
             for (auto s : seeds){
@@ -118,19 +107,9 @@ void Solution::part2() {
         ll dest = stoll(row[0]);
         ll src = stoll(row[1]);
         ll range = stoll(row[2]);
-        cout<<dest<<' '<<src<<' '<<range<<endl;
-        
-        cout<<"To process: ";
-        for (auto s : seeds){
-            cout<<"{"<<s.startingSeed<<' '<<s.range<<'}'<<' ';
-        }
+        //cout<<dest<<' '<<src<<' '<<range<<endl;
         
 
-        cout<<endl<<"To next phase: ";
-        for (auto s : newSeeds){
-            cout<<"{"<<s.startingSeed<<' '<<s.range<<'}'<<' ';
-        }
-        cout<<endl;
         
 
 
@@ -148,27 +127,35 @@ void Solution::part2() {
                 it = next(it);  // Move to the next element
                 continue;
             }
-            
 
             int lRange = transformer.startingSeed - seed.startingSeed ;
             int rRange = seed.startingSeed+seed.range - (transformer.startingSeed+transformer.range); 
+
             if (lRange > 0){
                 seeds.push_back(seedRange(seed.startingSeed,lRange));// non transformed
             }
             if (rRange > 0){
                 seeds.push_back(seedRange(transformer.startingSeed+transformer.range,rRange)); // non transformed
             }
-            ll newPos = dest;
+
+            
+            ll newPos = dest + max(seed.startingSeed - transformer.startingSeed,(ll)0);
             ll newRange = area;
                 
             newSeeds.push_back(seedRange(newPos,newRange));
             
             it = seeds.erase(it);
-            
         }
+        //cout<<"To process: ";
+      //  for (auto s : seeds){
+       //     cout<<"{"<<s.startingSeed<<' '<<s.range<<'}'<<' ';
+      //  }
 
-        
-        
+     //   cout<<endl<<"To next phase: ";
+   //     for (auto s : newSeeds){
+     //      cout<<"{"<<s.startingSeed<<' '<<s.range<<'}'<<' ';
+     //   }
+      //  cout<<endl;
     }
     for (seedRange s : seeds){
         newSeeds.push_back(s);
@@ -183,10 +170,10 @@ void Solution::part2() {
 int main(void){
     auto precomp = std::chrono::high_resolution_clock::now();
 
-    cout<<intersectingSeedRanges(seedRange(79,14),seedRange(50,52))<<endl;
-    cout<<intersectingSeedRanges(seedRange(0,3),seedRange(1,2))<<endl;
+   // cout<<intersectingSeedRanges(seedRange(0,4),seedRange(1,5))<<endl;
+    //cout<<intersectingSeedRanges(seedRange(0,3),seedRange(1,2))<<endl;
 
-    Solution s("test1", Solution::readType::spaced);
+    Solution s("5.2023.1", Solution::readType::spaced);
 
     auto start = std::chrono::high_resolution_clock::now();
     auto readin = std::chrono::duration_cast<std::chrono::microseconds>(start - precomp);

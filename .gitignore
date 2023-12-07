@@ -3,3 +3,5 @@ meta/internal_notes.md
 AdventOfCode/*.*
 !AdventOfCode/*.*.cpp
 AdventOfCode/input/*.*.bigboy
+AdventOfCode/input/*.*.1
+AdventOfCode/input/*.*.2
